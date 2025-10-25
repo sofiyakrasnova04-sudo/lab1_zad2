@@ -1,0 +1,11 @@
+<launch>
+    <!-- Объявляем тот же аргумент -->
+    <arg name="topic_name" default="my_default_topic"/>
+    
+    <!-- Используем аргумент -->
+    <node name="another_node" pkg="study_pkg" type="another_node.py" output="screen">
+        <param name="topic_name" value="$(arg topic_name)"/>
+    </node>
+    
+    <param name="another_topic_name" value="$(arg topic_name)"/>
+</launch>

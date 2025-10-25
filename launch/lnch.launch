@@ -1,0 +1,16 @@
+<launch>
+    <!-- Эмуляция камеры с частными параметрами -->
+    <node name="camera_driver" pkg="your_package" type="camera_sim.py" output="screen">
+        <param name="video_device" value="/dev/video0" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="frame_rate" value="30" />
+    </node>
+    
+    <!-- Эмуляция планера -->
+    <node name="global_planner" pkg="your_package" type="planner_sim.py" output="screen">
+        <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+        <param name="planner_frequency" value="1.0" />
+        <param name="planner_patience" value="5.0" />
+    </node>
+</launch>

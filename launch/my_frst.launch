@@ -1,0 +1,18 @@
+<launch>
+    <!-- Объявляем аргумент для имени топика -->
+    <arg name="topic_name" default="my_default_topic" />
+    
+    <!-- Выводим значение аргумента для отладки -->
+    <param name="debug_topic_name" value="$(arg topic_name)" />
+    
+    <!-- Запускаем другой launch-файл и передаем ему аргумент -->
+    <include file="$(find lab3)/launch/another_one.launch">
+        <arg name="topic_name" value="$(arg topic_name)" />
+    </include>
+    
+    <!-- Запускаем наш узел с переданным именем топика -->
+    <node name="params_study" pkg="lab3" type="lab3.py" output="screen">
+        <param name="topic_name" value="$(arg topic_name)" />
+    </node>
+    
+</launch>

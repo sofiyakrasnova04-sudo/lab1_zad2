@@ -1,0 +1,15 @@
+<launch>
+    <!-- Объявляем аргумент для имени топика -->
+    <arg name="topic_name" default="my_default_topic"/>
+    
+    <!-- Запускаем другой launch-файл и передаем ему аргумент -->
+    <include file="$(find study_pkg)/launch/another_one.launch">
+        <arg name="topic_name" value="$(arg topic_name)"/>
+    </include>
+    
+    <!-- Выводим информацию для демонстрации -->
+    <param name="demo_topic_name" value="$(arg topic_name)"/>
+    <node name="echo_node" pkg="study_pkg" type="echo_topic_name.py" output="screen">
+        <param name="topic_name" value="$(arg topic_name)"/>
+    </node>
+</launch>
