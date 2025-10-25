@@ -1,0 +1,7 @@
+<launch>
+    <!-- Запускаем Polynominal узел -->
+    <node name="polynominal_node" pkg="study_pkg" type="polynominal.py" output="screen"/>
+    
+    <!-- Запускаем Summing узел -->
+    <node name="summing_node" pkg="study_pkg" type="summing.py" output="screen"/>
+</launch>
